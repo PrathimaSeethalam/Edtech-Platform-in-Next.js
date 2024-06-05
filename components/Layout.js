@@ -27,6 +27,7 @@ export default function Layout({ children }) {
           <div className={styles.container}>
            {links.map(link => {
               const className = link.path === router.asPath ? styles.active : styles.link;
+              // eslint-disable-next-line react/jsx-key
               return <Link href={link.path}><a className={className} key={link.title}>{link.title}{" "}</a></Link>;
            })}
             {children}
