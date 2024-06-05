@@ -23,7 +23,7 @@ export async function getStaticPaths() {
   // Get the paths we want to pre-render based on posts
   const results = await handler(`https://api.nytimes.com/svc/news/v3/content/section-list.json?api-key=${API_KEY}`)
   return {
-    paths: results && results.map(result => {
+    paths: results?.results.map(result => {
         return { params : { section : result.section }}
     }),
     fallback: false 
